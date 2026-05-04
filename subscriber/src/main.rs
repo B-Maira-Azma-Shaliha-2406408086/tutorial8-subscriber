@@ -12,6 +12,10 @@ pub struct UserCreatedHandler;
 
 impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 
+    fn get_handler_action(&self) -> String {
+        "User Created Action".to_string() 
+    }
+
     fn handle(&self, message: Box<UserCreatedEventMessage>
     ) -> Result<(), HandleError> {
         let ten_millis = time::Duration::from_millis(1000);
